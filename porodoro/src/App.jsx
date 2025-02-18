@@ -17,7 +17,7 @@ function App() {
             alt="Logo"
             className="logo"
           />
-          <h1 className="timer-header">Pomodoro App</h1>
+          <h1 className="timer-header">PORODORO!</h1>
         </div>
         <button
           className="dark-mode-toggle"
