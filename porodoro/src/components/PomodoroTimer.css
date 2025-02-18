@@ -1,0 +1,104 @@
+/* Timer Container */
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px; /* Larger container */
+    background-color: transparent; /* Invisible background */
+    border-radius: 15px; /* Slightly rounded corners */
+    transition: all 0.3s ease;
+  }
+  
+  .timer-container.dark-mode {
+    background-color: transparent; /* Keep background transparent in dark mode */
+  }
+  
+  /* Mode Options */
+  .mode-buttons {
+    display: flex;
+    gap: 25px; /* Increased gap for neat spacing */
+    margin-bottom: 40px; /* Added spacing below modes */
+    align-items: center; /* Ensure vertical alignment */
+  }
+  
+  .mode-option {
+    font-size: 1rem; /* Reduced font size for modes */
+    color: #CDA37B; /* Main accent color */
+    cursor: pointer;
+    padding: 0; /* No padding by default */
+    border-radius: 8px; /* Rounded corners (applied on hover) */
+    background-color: transparent; /* No background by default */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .mode-option:hover {
+    color: #b38962; /* Darker shade of accent color on hover */
+    background-color: rgba(205, 163, 123, 0.2); /* Low-opacity background on hover */
+    padding: 8px 16px; /* Add padding on hover */
+  }
+  
+  .mode-option.active {
+    color: #b38962; /* Darker shade of accent color for active mode */
+    background-color: rgba(205, 163, 123, 0.2); /* Low-opacity background for active mode */
+    padding: 8px 16px; /* Add padding for active mode */
+    transition: none; /* Disable transition for active state */
+  }
+  
+  /* Timer Display */
+  .timer-display {
+    font-size: 9rem; /* Increased font size for the timer */
+    font-weight: bold;
+    color: #CDA37B; /* Main accent color */
+    margin-bottom: 50px; /* Added spacing below the timer */
+    transition: all 0.3s ease;
+  }
+  
+  .timer-display.dark-mode {
+    color: #CDA37B; /* Main accent color in dark mode */
+  }
+  
+  /* Adjust Options */
+  .adjust-buttons {
+    display: flex;
+    gap: 20px; /* Increased gap for neat spacing */
+    margin-bottom: 40px; /* Added spacing below adjustment options */
+  }
+  
+  .adjust-option {
+    font-size: 0.9rem; /* Reduced font size for + mins */
+    color: #CDA37B; /* Main accent color */
+    cursor: pointer;
+    padding: 0; /* Removed padding */
+    border-radius: 8px; /* Rounded corners */
+    background-color: transparent; /* No background */
+    transition: color 0.3s ease;
+  }
+  
+  .adjust-option:hover {
+    color: #b38962; /* Darker shade of accent color on hover */
+  }
+  
+  /* Control Buttons */
+  .controls {
+    display: flex;
+    gap: 20px; /* Consistent spacing between buttons */
+  }
+  
+  .controls button {
+    padding: 12px 25px; /* Slightly larger buttons for better visibility */
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px; /* Rounded corners for buttons */
+    cursor: pointer;
+    background-color: #CDA37B; /* Main accent color */
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .controls button.primary:hover {
+    background-color: #b38962; /* Darker shade of accent color on hover */
+  }
+  
+  .controls button:hover {
+    background-color: #b38962; /* Darker shade of accent color on hover */
+  }
