@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './TodoList.css'; // Import component-specific styles
-import { FaTrash } from 'react-icons/fa'; // Trash icon
+import './TodoList.css';
+import { FaTrash } from 'react-icons/fa';
 
-function TodoList({ darkMode }) {
+function TodoList() {
   const [todos, setTodos] = useState([]);
   const [newTask, setNewTask] = useState('');
-  const [selectedTasks, setSelectedTasks] = useState([]); // Track selected tasks (array)
+  const [selectedTasks, setSelectedTasks] = useState([]);
 
   const addTodo = () => {
     if (newTask.trim() !== '') {
@@ -36,7 +36,7 @@ function TodoList({ darkMode }) {
   };
 
   return (
-    <div className={`todo-container ${darkMode ? 'dark-mode' : ''}`}>
+    <div className="todo-container">
       {/* Input Field and Add Button */}
       <div className="add-task">
         <input

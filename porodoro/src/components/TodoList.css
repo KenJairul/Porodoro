@@ -1,126 +1,139 @@
 /* Todo Container */
 .todo-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    background-color: #f9f9f9; /* Light mode background */
-    border-radius: 10px;
-    overflow-y: auto; /* Enable scrolling if tasks exceed container height */
-    transition: all 0.3s ease;
-  }
-  
-  .todo-container.dark-mode {
-    background-color: #2c2c44; /* Dark mode background */
-  }
-  
-  /* Add Task Section */
-  .add-task {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .add-task input {
-    flex: 1;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
-  }
-  
-  .add-task input:focus {
-    border-color: #CDA37B; /* Main accent color for focus */
-    outline: none;
-  }
-  
-  .add-task button {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #CDA37B; /* Main accent color for button */
-    color: #ffffff;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-task button:hover {
-    background-color: #b38962; /* Darker shade of accent color on hover */
-  }
-  
-  /* Task List */
-  .task-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between tasks */
-  }
-  
-  /* Task Item */
-  .task-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #ffffff; /* Light mode background */
-    border: 1px solid #ddd; /* Subtle border */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  
-  .task-item.dark-mode {
-    background-color: #4a4a62; /* Dark mode background (complementary to #CDA37B) */
-    border-color: #555; /* Dark mode border */
-  }
-  
-  .task-item:hover {
-    background-color: rgba(205, 163, 123, 0.2); /* Low-opacity accent color on hover */
-    border-color: #CDA37B; /* Main accent color for border */
-  }
-  
-  .task-item.completed span {
-    text-decoration: line-through;
-    color: #888; /* Grayed-out text for completed tasks */
-  }
-  
-  /* Task Label */
-  .task-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .task-label input[type='checkbox'] {
-    appearance: none; /* Remove default checkbox styling */
-    width: 16px;
-    height: 16px;
-    border: 2px solid #CDA37B; /* Main accent color for border */
-    border-radius: 4px; /* Square checkbox */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: transparent; /* Transparent background by default */
-  }
-  
-  .task-label input[type='checkbox']:checked {
-    background-color: #CDA37B; /* Main accent color for selected checkbox */
-    border-color: #CDA37B;
-  }
-  
-  .task-label input[type='checkbox']:hover {
-    border-color: #b38962; /* Darker shade of accent color on hover */
-  }
-  
-  /* Trash Icon */
-  .trash-icon {
-    font-size: 1.2rem;
-    color: #ff4d4d; /* Red color for trash icon */
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .trash-icon:hover {
-    color: #cc0000; /* Darker red on hover */
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: transparent; /* Invisible background */
+  border-radius: 10px;
+  overflow-y: auto; /* Enable scrolling if tasks exceed container height */
+  transition: all 0.3s ease;
+}
+
+/* Add Task Section */
+.add-task {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-task input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff; /* Light mode background */
+  color: #333333; /* Light mode text */
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .add-task input {
+  background-color: #4a4a62; /* Dark mode background */
+  color: #d4d4d4; /* Dark mode text */
+  border-color: #555; /* Dark mode border */
+}
+
+.add-task input:focus {
+  border-color: #d4d4d4; /* Light border for focus in dark mode */
+  outline: none;
+}
+
+.add-task button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #CDA37B; /* Main accent color for button */
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .add-task button {
+  background-color: #555; /* Dark gray for dark mode */
+  color: #d4d4d4; /* Light text color for dark mode */
+}
+
+.add-task button:hover {
+  background-color: #666; /* Slightly lighter gray on hover */
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between tasks */
+}
+
+/* Task Item */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff; /* Light mode background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .task-item {
+  background-color: #4a4a62; /* Dark mode background */
+  border-color: #555; /* Dark mode border */
+}
+
+.task-item:hover {
+  background-color: rgba(205, 163, 123, 0.2); /* Low-opacity accent color on hover */
+  border-color: #d4d4d4; /* Light border for hover */
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  color: #888; /* Grayed-out text for completed tasks */
+}
+
+/* Task Label */
+.task-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-label input[type='checkbox'] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #CDA37B; /* Main accent color for border */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+body.dark-mode .task-label input[type='checkbox'] {
+  border-color: #d4d4d4; /* Light border for dark mode */
+}
+
+.task-label input[type='checkbox']:checked {
+  background-color: #CDA37B; /* Main accent color for selected checkbox */
+  border-color: #CDA37B;
+}
+
+.task-label input[type='checkbox']:hover {
+  border-color: #b38962; /* Darker shade of accent color on hover */
+}
+
+/* Trash Icon */
+.trash-icon {
+  font-size: 1.2rem;
+  color: #ff4d4d; /* Red color for trash icon */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.trash-icon:hover {
+  color: #cc0000; /* Darker red on hover */
+}

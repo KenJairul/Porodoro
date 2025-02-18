@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './PomodoroTimer.css'; // Import component-specific styles
+import './PomodoroTimer.css';
 
-function PomodoroTimer({ darkMode }) {
+function PomodoroTimer() {
   const [timeLeft, setTimeLeft] = useState(25 * 60); // Default to Focus mode (25 minutes)
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false); // Track pause/resume state
@@ -62,10 +62,10 @@ function PomodoroTimer({ darkMode }) {
   const seconds = timeLeft % 60;
 
   return (
-    <div className={`timer-container ${darkMode ? 'dark-mode' : ''}`}>
+    <div className="timer-container">
       {/* Mode Selection */}
       <div className="mode-buttons">
-        <span
+        <button
           className={`mode-option ${mode === 'focus' ? 'active' : ''}`}
           onClick={() => {
             setMode('focus');
@@ -75,8 +75,8 @@ function PomodoroTimer({ darkMode }) {
           }}
         >
           Focus
-        </span>
-        <span
+        </button>
+        <button
           className={`mode-option ${mode === 'shortBreak' ? 'active' : ''}`}
           onClick={() => {
             setMode('shortBreak');
@@ -86,8 +86,8 @@ function PomodoroTimer({ darkMode }) {
           }}
         >
           Short Break
-        </span>
-        <span
+        </button>
+        <button
           className={`mode-option ${mode === 'longBreak' ? 'active' : ''}`}
           onClick={() => {
             setMode('longBreak');
@@ -97,7 +97,7 @@ function PomodoroTimer({ darkMode }) {
           }}
         >
           Long Break
-        </span>
+        </button>
       </div>
 
       {/* Timer Display */}
@@ -105,32 +105,27 @@ function PomodoroTimer({ darkMode }) {
         {minutes}:{seconds < 10 ? '0' : ''}{seconds}
       </div>
 
+      {/* Separator Line */}
+      <div className="timer-separator"></div>
+
       {/* Quick Adjustment Options */}
       <div className="adjust-buttons">
-        <span className="adjust-option" onClick={() => adjustTimeAndStart(25)}>
-          +25 min
-        </span>
-        <span className="adjust-option" onClick={() => adjustTimeAndStart(10)}>
-          +10 min
-        </span>
-        <span className="adjust-option" onClick={() => adjustTimeAndStart(5)}>
-          +5 min
-        </span>
-        <span className="adjust-option" onClick={() => adjustTimeAndStart(1)}>
-          +1 min
-        </span>
+        <button className="adjust-option" onClick={() => adjustTimeAndStart(25)}>+25 min</button>
+        <button className="adjust-option" onClick={() => adjustTimeAndStart(10)}>+10 min</button>
+        <button className="adjust-option" onClick={() => adjustTimeAndStart(5)}>+5 min</button>
+        <button className="adjust-option" onClick={() => adjustTimeAndStart(1)}>+1 min</button>
       </div>
 
       {/* Control Buttons */}
       <div className="controls">
         {!isRunning ? (
-          <button className="primary" onClick={startTimer}>Start</button>
+          <button className="controls button primary" onClick={startTimer}>Start</button>
         ) : (
           <>
-            <button className="primary" onClick={isPaused ? resumeTimer : pauseTimer}>
+            <button className="controls button primary" onClick={isPaused ? resumeTimer : pauseTimer}>
               {isPaused ? 'Resume' : 'Pause'}
             </button>
-            <button onClick={resetTimer}>Reset</button>
+            <button className="controls button" onClick={resetTimer}>Reset</button>
           </>
         )}
       </div>

@@ -1,104 +1,129 @@
 /* Timer Container */
 .timer-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 60px; /* Larger container */
-    background-color: transparent; /* Invisible background */
-    border-radius: 15px; /* Slightly rounded corners */
-    transition: all 0.3s ease;
-  }
-  
-  .timer-container.dark-mode {
-    background-color: transparent; /* Keep background transparent in dark mode */
-  }
-  
-  /* Mode Options */
-  .mode-buttons {
-    display: flex;
-    gap: 25px; /* Increased gap for neat spacing */
-    margin-bottom: 40px; /* Added spacing below modes */
-    align-items: center; /* Ensure vertical alignment */
-  }
-  
-  .mode-option {
-    font-size: 1rem; /* Reduced font size for modes */
-    color: #CDA37B; /* Main accent color */
-    cursor: pointer;
-    padding: 0; /* No padding by default */
-    border-radius: 8px; /* Rounded corners (applied on hover) */
-    background-color: transparent; /* No background by default */
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .mode-option:hover {
-    color: #b38962; /* Darker shade of accent color on hover */
-    background-color: rgba(205, 163, 123, 0.2); /* Low-opacity background on hover */
-    padding: 8px 16px; /* Add padding on hover */
-  }
-  
-  .mode-option.active {
-    color: #b38962; /* Darker shade of accent color for active mode */
-    background-color: rgba(205, 163, 123, 0.2); /* Low-opacity background for active mode */
-    padding: 8px 16px; /* Add padding for active mode */
-    transition: none; /* Disable transition for active state */
-  }
-  
-  /* Timer Display */
-  .timer-display {
-    font-size: 9rem; /* Increased font size for the timer */
-    font-weight: bold;
-    color: #CDA37B; /* Main accent color */
-    margin-bottom: 50px; /* Added spacing below the timer */
-    transition: all 0.3s ease;
-  }
-  
-  .timer-display.dark-mode {
-    color: #CDA37B; /* Main accent color in dark mode */
-  }
-  
-  /* Adjust Options */
-  .adjust-buttons {
-    display: flex;
-    gap: 20px; /* Increased gap for neat spacing */
-    margin-bottom: 40px; /* Added spacing below adjustment options */
-  }
-  
-  .adjust-option {
-    font-size: 0.9rem; /* Reduced font size for + mins */
-    color: #CDA37B; /* Main accent color */
-    cursor: pointer;
-    padding: 0; /* Removed padding */
-    border-radius: 8px; /* Rounded corners */
-    background-color: transparent; /* No background */
-    transition: color 0.3s ease;
-  }
-  
-  .adjust-option:hover {
-    color: #b38962; /* Darker shade of accent color on hover */
-  }
-  
-  /* Control Buttons */
-  .controls {
-    display: flex;
-    gap: 20px; /* Consistent spacing between buttons */
-  }
-  
-  .controls button {
-    padding: 12px 25px; /* Slightly larger buttons for better visibility */
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px; /* Rounded corners for buttons */
-    cursor: pointer;
-    background-color: #CDA37B; /* Main accent color */
-    color: #ffffff;
-    transition: background-color 0.3s ease;
-  }
-  
-  .controls button.primary:hover {
-    background-color: #b38962; /* Darker shade of accent color on hover */
-  }
-  
-  .controls button:hover {
-    background-color: #b38962; /* Darker shade of accent color on hover */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px;
+  background-color: transparent; /* Invisible background */
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+/* Mode Options */
+.mode-buttons {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.mode-option {
+  font-size: 1rem;
+  color: #CDA37B; /* Main accent color */
+  cursor: pointer;
+  padding: 0;
+  border: none; /* Remove border */
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .mode-option {
+  color: #d4d4d4; /* Light text color for dark mode */
+}
+
+.mode-option:hover {
+  color: #b38962; /* Darker shade of accent color on hover */
+}
+
+.mode-option.active {
+  color: #d4d4d4; /* Light text color for active mode in dark mode */
+  background-color: transparent; /* No background */
+  padding: 8px 16px; /* Highlight padding */
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px #d4d4d4; /* Light border for active mode */
+}
+
+/* Timer Display */
+.timer-display {
+  font-size: 9rem;
+  font-weight: bold;
+  color: #CDA37B; /* Main accent color */
+  margin-bottom: 20px; /* Reduced margin for the separator line */
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .timer-display {
+  color: #d4d4d4; /* Light text color for dark mode */
+}
+
+/* Separator Line */
+.timer-separator {
+  width: 100%; /* Adjust width as needed */
+  border-radius: 8px;
+  height: 10px;
+  background-color: #ddd; /* Light mode separator color */
+  margin-bottom: 40px; /* Space below the separator */
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .timer-separator {
+  background-color: #555; /* Dark mode separator color */
+}
+
+/* Adjust Options */
+.adjust-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.adjust-option {
+  font-size: 0.9rem;
+  color: #CDA37B; /* Main accent color */
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .adjust-option {
+  color: #d4d4d4; /* Light text color for dark mode */
+}
+
+.adjust-option:hover {
+  transform: scale(1.1); /* Scale up on hover */
+  color: #b38962; /* Darker shade of accent color on hover */
+  background-color: transparent; /* No background on hover */
+}
+
+/* Control Buttons */
+.controls {
+  display: flex;
+  gap: 20px;
+}
+
+.controls button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #CDA37B; /* Main accent color */
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .controls button {
+  background-color: #555; /* Dark gray for dark mode */
+  color: #d4d4d4; /* Light text color for dark mode */
+}
+
+.controls button.primary:hover {
+  background-color: #666; /* Slightly lighter gray on hover */
+}
+
+.controls button:hover {
+  background-color: #666; /* Slightly lighter gray on hover */
+}
