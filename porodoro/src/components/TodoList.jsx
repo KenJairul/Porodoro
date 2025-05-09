@@ -14,6 +14,12 @@ function TodoList() {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      addTodo();
+    }
+  };
+
   const toggleTaskCompletion = (index) => {
     const updatedSelectedTasks = [...selectedTasks];
     const taskIndex = updatedSelectedTasks.indexOf(index);
@@ -43,6 +49,7 @@ function TodoList() {
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
+          onKeyPress={handleKeyPress}
           placeholder="Add a task..."
         />
         <button onClick={addTodo}>Add</button>

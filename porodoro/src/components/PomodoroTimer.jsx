@@ -61,6 +61,11 @@ function PomodoroTimer() {
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
 
+  // Format the timer display with leading zeros
+  const formatTime = (time) => {
+    return time < 10 ? `0${time}` : time;
+  };
+
   return (
     <div className="timer-container">
       {/* Mode Selection */}
@@ -102,7 +107,7 @@ function PomodoroTimer() {
 
       {/* Timer Display */}
       <div className="timer-display">
-        {minutes}:{seconds < 10 ? '0' : ''}{seconds}
+        {formatTime(minutes)}:{formatTime(seconds)}
       </div>
 
       {/* Separator Line */}

@@ -3,68 +3,95 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding: 20px;
-  background-color: transparent; /* Invisible background */
-  border-radius: 10px;
-  overflow-y: auto; /* Enable scrolling if tasks exceed container height */
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
   transition: all 0.3s ease;
+}
+
+body.dark-mode .todo-container {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Add Task Section */
 .add-task {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
 .add-task input {
   flex: 1;
-  padding: 10px;
+  padding: 14px 18px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #ffffff; /* Light mode background */
-  color: #333333; /* Light mode text */
-  transition: all 0.3s ease;
+  font-weight: 500;
+  border: 1px solid rgba(142, 83, 43, 0.15);
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333333;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 body.dark-mode .add-task input {
-  background-color: #4a4a62; /* Dark mode background */
-  color: #d4d4d4; /* Dark mode text */
-  border-color: #555; /* Dark mode border */
+  background-color: rgba(74, 74, 98, 0.8);
+  color: #e1e1e1;
+  border-color: rgba(106, 106, 124, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .add-task input:focus {
-  border-color: #d4d4d4; /* Light border for focus in dark mode */
   outline: none;
+  border-color: rgba(142, 83, 43, 0.4);
+  box-shadow: 0 4px 12px rgba(142, 83, 43, 0.1);
+  transform: translateY(-1px);
+}
+
+body.dark-mode .add-task input:focus {
+  border-color: rgba(106, 106, 124, 0.6);
+  box-shadow: 0 4px 12px rgba(106, 106, 124, 0.2);
 }
 
 .add-task button {
-  padding: 10px 15px;
+  padding: 14px 28px;
   font-size: 1rem;
+  font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 14px;
   cursor: pointer;
-  background-color: #CDA37B; /* Main accent color for button */
+  background-color: #8E532B;
   color: #ffffff;
-  transition: background-color 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(142, 83, 43, 0.2);
 }
 
 body.dark-mode .add-task button {
-  background-color: #555; /* Dark gray for dark mode */
-  color: #d4d4d4; /* Light text color for dark mode */
+  background-color: #6A6A7C;
+  box-shadow: 0 4px 12px rgba(106, 106, 124, 0.3);
 }
 
 .add-task button:hover {
-  background-color: #666; /* Slightly lighter gray on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(142, 83, 43, 0.25);
+  background-color: #7A4522;
+}
+
+body.dark-mode .add-task button:hover {
+  background-color: #585869;
+  box-shadow: 0 6px 14px rgba(88, 88, 105, 0.35);
 }
 
 /* Task List */
 .task-list {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between tasks */
+  gap: 12px;
+  overflow: hidden;
 }
 
 /* Task Item */
@@ -72,68 +99,228 @@ body.dark-mode .add-task button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #ffffff; /* Light mode background */
-  border: 1px solid #ddd; /* Subtle border */
-  border-radius: 5px;
+  padding: 16px 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  animation: slideDown 0.5s ease-out;
 }
 
 body.dark-mode .task-item {
-  background-color: #4a4a62; /* Dark mode background */
-  border-color: #555; /* Dark mode border */
+  background-color: rgba(74, 74, 98, 0.7);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .task-item:hover {
-  background-color: rgba(205, 163, 123, 0.2); /* Low-opacity accent color on hover */
-  border-color: #d4d4d4; /* Light border for hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(142, 83, 43, 0.1);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+body.dark-mode .task-item:hover {
+  background-color: rgba(74, 74, 98, 0.85);
+  box-shadow: 0 4px 12px rgba(106, 106, 124, 0.25);
+}
+
+.task-item.completed {
+  background-color: rgba(142, 83, 43, 0.07);
+}
+
+body.dark-mode .task-item.completed {
+  background-color: rgba(106, 106, 124, 0.2);
 }
 
 .task-item.completed span {
   text-decoration: line-through;
-  color: #888; /* Grayed-out text for completed tasks */
+  color: rgba(142, 83, 43, 0.6);
+}
+
+body.dark-mode .task-item.completed span {
+  color: rgba(212, 212, 212, 0.6);
 }
 
 /* Task Label */
 .task-label {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .task-label {
+  color: #e1e1e1;
 }
 
 .task-label input[type='checkbox'] {
   appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 2px solid #CDA37B; /* Main accent color for border */
-  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(142, 83, 43, 0.4);
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: transparent;
+  position: relative;
 }
 
 body.dark-mode .task-label input[type='checkbox'] {
-  border-color: #d4d4d4; /* Light border for dark mode */
+  border-color: rgba(106, 106, 124, 0.5);
 }
 
 .task-label input[type='checkbox']:checked {
-  background-color: #CDA37B; /* Main accent color for selected checkbox */
-  border-color: #CDA37B;
+  background-color: #8E532B;
+  border-color: #8E532B;
+}
+
+body.dark-mode .task-label input[type='checkbox']:checked {
+  background-color: #6A6A7C;
+  border-color: #6A6A7C;
+}
+
+.task-label input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%) rotate(45deg);
+  width: 6px;
+  height: 10px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
 .task-label input[type='checkbox']:hover {
-  border-color: #b38962; /* Darker shade of accent color on hover */
+  border-color: #8E532B;
 }
 
-/* Trash Icon */
+body.dark-mode .task-label input[type='checkbox']:hover {
+  border-color: #6A6A7C;
+}
+
 .trash-icon {
-  font-size: 1.2rem;
-  color: #ff4d4d; /* Red color for trash icon */
+  font-size: 1.25rem;
+  padding: 20px;
+  color: #ff4d4d;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-mode .trash-icon {
+  color: #ff6b6b;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .trash-icon:hover {
-  color: #cc0000; /* Darker red on hover */
+  color: #ff2525;
+  background-color: rgba(255, 77, 77, 0.15);
+  transform: scale(1.1);
+}
+
+/* Empty State */
+.task-list:empty::after {
+  content: 'No tasks yet. Add one to get started!';
+  color: #999;
+  font-size: 0.95rem;
+  font-style: italic;
+  padding: 20px;
+  text-align: center;
+}
+
+body.dark-mode .task-list:empty::after {
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .todo-container {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .add-task {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .add-task button {
+    width: 100%;
+  }
+  
+  .task-item {
+    padding: 14px 16px;
+  }
+}
+
+/* ...existing code... */
+
+@media (max-width: 768px) {
+  .timer-display {
+    font-size: 6rem;
+  }
+  
+  .adjust-buttons {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .timer-container {
+    padding: 30px 20px;
+    max-width: 100%;
+    margin: 0 10px;
+  }
+  
+  .mode-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .mode-option {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .controls {
+    width: 100%;
+  }
+  
+  .controls button {
+    flex: 1;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer-display {
+    font-size: 4.5rem;
+  }
+  
+  .mode-option {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .adjust-option {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
 }
